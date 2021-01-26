@@ -58,11 +58,12 @@ Added the <code>x-api-key</code> value as <code>test</code> in the middleware to
 Use postman or Someother Rest API tool for 
 
 
-<code>Endpoint  <strong> https://localhost:8080/api/v1/sendEmail  <strong> </code>
+<code>Endpoint  <strong> https://localhost:8080/api/v1/sendEmail  </strong> </code>
 
-<code>HTTP Method:  <strong>POST <strong></code>
+<code>HTTP Method:  <strong>POST </strong></code>
 
-<code>Request Body  <strong> {
+<code>Request Body  <strong> 
+  {
     "emailProvider": "MAILJET",
     "emailParams": {
         "recepients": ["anil.kumar@esoptra.com"],
@@ -70,10 +71,11 @@ Use postman or Someother Rest API tool for
         "body": "some body",
         "cc": ["anilamilineni01@gmail.com"],
         "bcc": ["anilamilineni01@gmail.com"]
-    }
-} </code>
+      }
+  } 
+  </strong> </code>
 
-<code>HTTP Headers  <strong> x-api-key : test  <strong> </code>
+<code>HTTP Headers  <strong> x-api-key : test  </strong> </code>
 
 ## Performance Metrics
 
