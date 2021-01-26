@@ -3,17 +3,10 @@ package resthandlers
 import (
 	"net/http"
 
+	"github.com/anil-appface/go-mailservice/mailproviders"
+	"github.com/anil-appface/go-mailservice/model"
 	"github.com/gin-gonic/gin"
 )
-
-// model which should be used to send as request body
-type emailRequest struct {
-	Recepient string `json:"recepient"`
-	CC        string `json:"cc"`
-	BCC       string `json:"bcc"`
-	Subject   string `json:"subject"`
-	Body      string `json:"body"`
-}
 
 type mailHandler struct {
 }
@@ -23,17 +16,32 @@ func NewMailHandler() *mailHandler {
 	return &mailHandler{}
 }
 
+//SendEmail router to handle the sendEmail function.
 func (me *mailHandler) SendEmail(c *gin.Context) {
-	var emailReq emailRequest
-	c.BindJSON(&emailReq)
-	// DB call to create a todo
-	// Config.DB.Create(todo).Error;
-	// err := Models.CreateATodo(&todo)
-	// if err != nil {
-	// 	c.AbortWithStatus(http.StatusNotFound)
-	// } else {
-	// 	c.JSON(http.StatusOK, emailReq)
-	// }
 
-	c.JSON(http.StatusOK, emailReq)
+	var emailReq model.EmailReqModel
+	//Bind the POST request body
+	err := c.BindJSON(&emailReq)
+	//if error while sending an email return error with 500 status
+	if err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
+	}
+
+	//TODO:: configure the sender.
+	if emailReq.EmailParams.Sender == "" {
+		emailReq.EmailParams.Sender = "anilamilineni01@gmail.com"
+	}
+
+	emailProvider := mailproviders.GetEmailProvider(emailReq.EmailProvider)
+	res, err := emailProvider.SendEmail(&emailReq.EmailParams)
+
+	//if error while sending an email return error with 500 status
+	if err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
+	}
+
+	//send the response to caller
+	c.JSON(http.StatusOK, res)
 }
