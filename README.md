@@ -66,7 +66,7 @@ Use postman or Someother Rest API tool for
   {
     "emailProvider": "MAILJET",
     "emailParams": {
-        "recepients": ["anil.kumar@esoptra.com"],
+        "recepients": ["anilamilineni01@gmail.com"],
         "subject": "some subject",
         "body": "some body",
         "cc": ["anilamilineni01@gmail.com"],
