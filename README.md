@@ -35,7 +35,7 @@ Since we are using the gin web framework, we made the application rest api route
 
 ## 2. Middleware
 
-Out of the box Gin web framework allows you to add the middleware function. In this project, I have used that functionality to add the logging, very basic <code>x-api-key</code> header authentication to validate the requests incoming.
+Out of the box Gin web framework allows you to add the middleware function. In this project, Middleware functionality has been added for logging & very basic <code>x-api-key</code> header authentication to validate the requests incoming.
 
 ## 3. Frameworks
 
@@ -46,15 +46,19 @@ Using the below frameworks in this project:
 
 ## 4. Future Email Providers Support
 
-Added mailProvider as interface in the app, whichever new provider gonna add in the future must implement mailProvider interface. and must register in <code>GetEmailProvider(mailProvider string) MailProvider </code> method.
+Added mailProvider as interface in the app.
+
+If everwant to add the new email-provider then we should
+
+1. Implement mailProvider interface.
+2. Add the additional case inside switch block in <a href="https://github.com/anil-appface/go-mailservice/blob/238d130f07fbe18a0936b16052b821ffddbdbda4/mailproviders/mailProvider.go#L17">GetEmailProvider(mailProvider string) MailProvider </a> Method
+
 
 ## 5. API Token authentication
 
-Added the <code>x-api-key</code> value as <code>test</code> in the middleware to validate every request if the request is not passed with header x-api-key as test then you will get unauthorised with status code 401 as error.
+Added the <code>x-api-key</code> value as <code>test</code> in the middleware to validate every request. If the request is not passed with header x-api-key as test then you will get unauthorised with status code 401 as error.
 
 ## Rest API 
-
-Use postman or Someother Rest API tool for 
 
 
 <code>Endpoint  <strong> https://localhost:8080/api/v1/sendEmail  </strong> </code>
@@ -88,5 +92,5 @@ Benchmarking for this application is not done.
 ## Limitations
 
 1. Added very basic level of authentication on api routes and the server is running on http mode.
-2. There is no field validation or image file validation on api routes.
+2. There is no field validation in api.
 4. There is no much test cases written in the interest of time.
