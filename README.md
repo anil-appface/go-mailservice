@@ -7,10 +7,11 @@ go-mailservice is a simple http server is used to send the emails. It features R
 
 - [MailService](#go-mailservice)
   - [Usage](#usage)
-  - [1. Design Pattern](#1.-design-pattern)
-  - [2. Middleware](#2.-middleware)
-  - [4. Future Email Providers Support](#4.-future-email-providers-support)
-  - [5. API Token authentication](#5.-api-token-authentication)
+  - [1. Design Pattern](#1-design-pattern)
+  - [2. Middleware](#2-middleware)
+  - [3. Frameworks](#3-frameworks)
+  - [4. Future Email Providers Support](#4-future-email-providers-support)
+  - [5. API Token authentication](#5-api-token-authentication)
   - [Performance Metrics](#performance-metrics)
   - [Limitations](#limitations)
 
@@ -57,11 +58,11 @@ Added the <code>x-api-key</code> value as <code>test</code> in the middleware to
 Use postman or Someother Rest API tool for 
 
 
-Endpoint  https://localhost:8080/api/v1/sendEmail
+<code>Endpoint  <strong> https://localhost:8080/api/v1/sendEmail  <strong> </code>
 
-HTTP Method  POST 
+<code>HTTP Method:  <strong>POST <strong></code>
 
-Request Body {
+<code>Request Body  <strong> {
     "emailProvider": "MAILJET",
     "emailParams": {
         "recepients": ["anil.kumar@esoptra.com"],
@@ -70,9 +71,9 @@ Request Body {
         "cc": ["anilamilineni01@gmail.com"],
         "bcc": ["anilamilineni01@gmail.com"]
     }
-}
+} </code>
 
-HTTP Headers x-api-key:test
+<code>HTTP Headers  <strong> x-api-key : test  <strong> </code>
 
 ## Performance Metrics
 
