@@ -37,17 +37,16 @@ Since we are using the gin web framework, we made the application rest api route
 
 Out of the box Gin web framework allows you to add the middleware function. In this project, I have used that functionality to add the logging, very basic <code>x-api-key</code> header authentication to validate the requests incoming.
 
-
-## 4. Future Email Providers Support
-
-Added mailProvider as interface in the app, whichever new provider gonna add in the future must implement mailProvider interface. and must register in <code>GetEmailProvider(mailProvider string) MailProvider </code> method.
-
 ## 3. Frameworks
 
 Using the below frameworks in this project:
 
 1. <a href="https://github.com/gin-gonic/gin"><strong>Gin Web Framework</strong></a>
 2. <a href="https://github.com/mailjet/mailjet-apiv3-go"><strong>Mailjet API</strong></a>
+
+## 4. Future Email Providers Support
+
+Added mailProvider as interface in the app, whichever new provider gonna add in the future must implement mailProvider interface. and must register in <code>GetEmailProvider(mailProvider string) MailProvider </code> method.
 
 ## 5. API Token authentication
 
