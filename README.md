@@ -77,6 +77,9 @@ Use postman or Someother Rest API tool for
 
 <code>HTTP Headers  <strong> x-api-key : test  </strong> </code>
 
+
+NOTE: cc,bcc fields are made optional. 
+
 ## Performance Metrics
 
 Benchmarking for this application is not done.
